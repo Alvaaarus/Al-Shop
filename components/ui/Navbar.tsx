@@ -25,7 +25,6 @@ export default function Navbar() {
             {[
               { href: '/', label: 'Inicio' },
               { href: '/#drops', label: 'Drops' },
-              { href: '/#catalogo', label: 'Catálogo' },
             ].map((item) => (
               <Link
                 key={item.href}
@@ -76,14 +75,13 @@ export default function Navbar() {
           {[
             { href: '/', label: 'Inicio' },
             { href: '/#drops', label: 'Drops' },
-            { href: '/#catalogo', label: 'Catálogo' },
             { href: '/carrito', label: `Carrito (${totalItems})` },
           ].map((item, i) => (
             <Link
               key={item.href}
               href={item.href}
               onClick={() => setMenuOpen(false)}
-              className="font-display text-5xl uppercase tracking-wider text-dark-200 hover:text-smoke transition-all duration-300"
+              className="font-display text-4xl uppercase tracking-wider text-dark-200 hover:text-smoke active:text-smoke transition-all duration-300"
               style={{ animationDelay: `${i * 0.1}s` }}
             >
               {item.label}

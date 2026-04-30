@@ -3,17 +3,30 @@
 import Link from 'next/link';
 import SmokeEffect from '@/components/SmokeEffect';
 import LightningEffect from '@/components/LightningEffect';
+import SilverStarsBackground from '@/components/SilverStarsBackground';
 
-export default function Hero() {
+interface HeroProps {
+  /** Si está definido, "Ver Limited Drop" ejecuta esta acción (transición + scroll). Si no, usa enlace a #drops. */
+  onLimitedDropClick?: () => void;
+}
+
+export default function Hero({ onLimitedDropClick }: HeroProps) {
   return (
-    <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-dark-950">
-      {/* Background effects */}
-      <SmokeEffect />
-      <LightningEffect />
+    <section className="relative min-h-[100dvh] flex items-center justify-center overflow-hidden bg-gradient-to-b from-black from-[30%] to-[#001a33]">
+      {/* Cielo nocturno: puntos + destellos tipo cruz (muy sutiles) */}
+      <SilverStarsBackground dotCount={48} sparkleCount={12} />
 
-      {/* Gradient overlays */}
-      <div className="absolute inset-0 bg-gradient-to-b from-dark-950/50 via-transparent to-dark-950 pointer-events-none" />
-      <div className="absolute inset-0 bg-gradient-to-r from-smoke/5 via-transparent to-neon-cyan/5 pointer-events-none" />
+      {/* Background effects (atenuados para no competir con las estrellas) */}
+      <div className="absolute inset-0 opacity-[0.2]">
+        <SmokeEffect />
+      </div>
+      <div className="absolute inset-0 opacity-[0.12]">
+        <LightningEffect />
+      </div>
+
+      {/* Vignette ligera para legibilidad del texto */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/35 via-transparent to-[#001a33]/55 pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-r from-smoke/[0.04] via-transparent to-neon-cyan/[0.06] pointer-events-none" />
 
       {/* Grid pattern overlay */}
       <div
@@ -32,7 +45,7 @@ export default function Hero() {
         </p>
 
         {/* Main title with glitch effect */}
-        <h1 className="font-display text-7xl sm:text-8xl md:text-9xl lg:text-[10rem] uppercase leading-[0.85] tracking-wider text-white mb-4">
+        <h1 className="font-display text-6xl sm:text-8xl md:text-9xl lg:text-[10rem] uppercase leading-[0.85] tracking-wider text-white mb-4">
           <span className="glitch-text" data-text="AL SHOP">AL SHOP</span>
         </h1>
 
@@ -48,20 +61,31 @@ export default function Hero() {
         </p>
 
         {/* CTA Buttons */}
-        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-          <Link
-            href="/#catalogo"
-            className="group relative px-10 py-4 bg-smoke text-white text-sm uppercase tracking-[0.2em] font-medium overflow-hidden transition-all duration-300 hover:shadow-[0_0_20px_rgba(203,213,225,0.3)]"
-          >
-            <span className="relative z-10">Ver Catálogo</span>
-            <div className="absolute inset-0 bg-smoke-dim transform -translate-x-full group-hover:translate-x-0 transition-transform duration-300" />
-          </Link>
+        <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center">
+          {onLimitedDropClick ? (
+            <button
+              type="button"
+              onClick={onLimitedDropClick}
+              className="group relative w-full sm:w-auto px-8 sm:px-10 py-4 bg-smoke text-dark-950 text-sm uppercase tracking-[0.2em] font-medium overflow-hidden transition-all duration-300 hover:shadow-[0_0_20px_rgba(203,213,225,0.3)] active:scale-[0.98]"
+            >
+              <span className="relative z-10">Ver Limited Drop</span>
+              <div className="absolute inset-0 bg-smoke-dim transform -translate-x-full group-hover:translate-x-0 group-active:translate-x-0 transition-transform duration-300" />
+            </button>
+          ) : (
+            <Link
+              href="/#drops"
+              className="group relative w-full sm:w-auto px-8 sm:px-10 py-4 bg-smoke text-dark-950 text-sm uppercase tracking-[0.2em] font-medium overflow-hidden transition-all duration-300 hover:shadow-[0_0_20px_rgba(203,213,225,0.3)] active:scale-[0.98]"
+            >
+              <span className="relative z-10">Ver Limited Drop</span>
+              <div className="absolute inset-0 bg-smoke-dim transform -translate-x-full group-hover:translate-x-0 group-active:translate-x-0 transition-transform duration-300" />
+            </Link>
+          )}
 
           <Link
-            href="/#drops"
-            className="px-10 py-4 border border-neon-cyan text-neon-cyan text-sm uppercase tracking-[0.2em] font-medium hover:bg-neon-cyan/10 hover:shadow-[0_0_15px_rgba(6,182,212,0.2)] transition-all duration-300"
+            href="/carrito"
+            className="w-full sm:w-auto px-8 sm:px-10 py-4 border border-neon-cyan text-neon-cyan text-sm uppercase tracking-[0.2em] font-medium hover:bg-neon-cyan/10 hover:shadow-[0_0_15px_rgba(6,182,212,0.2)] active:scale-[0.98] transition-all duration-300"
           >
-            New Drops
+            Ir al carrito
           </Link>
         </div>
 

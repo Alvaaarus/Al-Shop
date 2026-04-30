@@ -1,6 +1,6 @@
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
-import { CarritoItem, CarritoStore, Producto } from '@/lib/types';
+import { CarritoStore, Producto } from '@/lib/types';
 
 export const useCarritoStore = create<CarritoStore>()(
   persist(

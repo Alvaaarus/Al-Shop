@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
+import { useState } from 'react';
 import { Producto } from '@/lib/types';
 import { useCarritoStore } from '@/store/carrito';
 import { formatPrice } from '@/lib/utils';
@@ -12,9 +13,14 @@ interface ProductCardProps {
 
 export default function ProductCard({ producto }: ProductCardProps) {
   const agregarItem = useCarritoStore((s) => s.agregarItem);
+  const [imagenActual, setImagenActual] = useState(producto.imagen);
+
+  const imagenFallback = `data:image/svg+xml;utf8,${encodeURIComponent(
+    '<svg xmlns="http://www.w3.org/2000/svg" width="600" height="600"><rect width="100%" height="100%" fill="#111111"/><text x="50%" y="50%" fill="#888888" font-family="Arial, sans-serif" font-size="22" text-anchor="middle" dominant-baseline="middle">Imagen no disponible</text></svg>'
+  )}`;
 
   return (
-    <div className="group relative bg-dark-800 border border-dark-600 overflow-hidden transition-all duration-500 hover:border-smoke/50 hover:shadow-[0_0_15px_rgba(203,213,225,0.1)]">
+    <div className="group relative bg-dark-800 border border-dark-600 overflow-hidden transition-all duration-500 hover:border-smoke/50 active:border-smoke/50 hover:shadow-[0_0_15px_rgba(203,213,225,0.1)] active:shadow-[0_0_15px_rgba(203,213,225,0.1)]">
       {/* New badge */}
       {producto.nuevo && (
         <span className="absolute top-3 left-3 z-10 bg-smoke text-white text-[9px] font-bold uppercase tracking-[0.15em] px-2.5 py-1 animate-neon-pulse">
@@ -25,14 +31,17 @@ export default function ProductCard({ producto }: ProductCardProps) {
       {/* Image */}
       <Link href={`/producto/${producto.id}`} className="block relative aspect-square bg-dark-700 overflow-hidden">
         <Image
-          src={producto.imagen}
+          src={imagenActual}
           alt={producto.nombre}
           fill
-          className="object-cover transition-transform duration-700 group-hover:scale-110"
+          className="object-cover transition-transform duration-700 group-hover:scale-110 group-active:scale-110"
           sizes="(max-width: 640px) 65vw, (max-width: 768px) 45vw, 25vw"
+          onError={() => {
+            if (imagenActual !== imagenFallback) setImagenActual(imagenFallback);
+          }}
         />
         {/* Hover overlay */}
-        <div className="absolute inset-0 bg-gradient-to-t from-dark-950 via-dark-950/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+        <div className="absolute inset-0 bg-gradient-to-t from-dark-950 via-dark-950/20 to-transparent opacity-0 group-hover:opacity-100 group-active:opacity-100 transition-opacity duration-500" />
       </Link>
 
       {/* Info */}
@@ -54,7 +63,7 @@ export default function ProductCard({ producto }: ProductCardProps) {
           </p>
           <button
             onClick={() => agregarItem(producto)}
-            className="w-10 h-10 flex items-center justify-center border border-dark-500 text-dark-300 hover:border-neon-cyan hover:text-neon-cyan hover:shadow-[0_0_15px_rgba(6,182,212,0.3)] transition-all duration-300"
+            className="w-10 h-10 flex items-center justify-center border border-dark-500 text-dark-300 hover:border-neon-cyan hover:text-neon-cyan hover:shadow-[0_0_15px_rgba(6,182,212,0.3)] active:border-neon-cyan active:text-neon-cyan active:shadow-[0_0_15px_rgba(6,182,212,0.3)] active:scale-95 transition-all duration-300 touch-manipulation"
             aria-label="Agregar al carrito"
           >
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
@@ -73,7 +82,7 @@ export default function ProductCard({ producto }: ProductCardProps) {
       </div>
 
       {/* Bottom neon line on hover */}
-      <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-smoke via-neon-cyan to-smoke transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500" />
+      <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-smoke via-neon-cyan to-smoke transform scale-x-0 group-hover:scale-x-100 group-active:scale-x-100 transition-transform duration-500" />
     </div>
   );
 }

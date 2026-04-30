@@ -25,10 +25,10 @@ export default function CarritoPage() {
         <p className="font-display text-6xl md:text-8xl uppercase text-dark-700 mb-4">Vacío</p>
         <p className="text-sm text-dark-500 mb-8">Aún no has agregado ninguna gorra.</p>
         <Link
-          href="/#catalogo"
+          href="/#drops"
           className="inline-block px-10 py-4 bg-smoke text-white text-sm uppercase tracking-[0.2em] font-medium hover:shadow-[0_0_20px_rgba(203,213,225,0.3)] transition-all duration-300"
         >
-          Ver catálogo
+          Ver drops
         </Link>
       </div>
     );
@@ -167,7 +167,7 @@ export default function CarritoPage() {
             </a>
 
             <Link
-              href="/#catalogo"
+              href="/#drops"
               className="w-full flex items-center justify-center py-3 border border-dark-600 text-sm text-dark-400 uppercase tracking-[0.15em] hover:border-neon-cyan hover:text-neon-cyan transition-all duration-300"
             >
               ← Seguir comprando

@@ -88,6 +88,169 @@
   50% { opacity: 0.7; }
 }
 
+/* Puntos distantes (micro-estrellas) */
+@keyframes star-twinkle-dot {
+  0%, 100% {
+    opacity: 0.12;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.38;
+    transform: scale(1.18);
+  }
+}
+
+.star-twinkle-dot {
+  animation-name: star-twinkle-dot;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+
+/* Destello tipo glint (cruz fina + halo) — parpadeo muy suave */
+@keyframes sparkle-twinkle-soft {
+  0%, 100% {
+    opacity: 0.22;
+    filter: brightness(0.92);
+  }
+  50% {
+    opacity: 0.38;
+    filter: brightness(1.12);
+  }
+}
+
+.sparkle-star-wrap {
+  animation-name: sparkle-twinkle-soft;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+
+.sparkle-soft-glow {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 190%;
+  height: 190%;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.14) 0%,
+    rgba(255, 255, 255, 0.04) 42%,
+    transparent 72%
+  );
+  pointer-events: none;
+}
+
+.sparkle-ray-cross-v {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 1px;
+  height: 168%;
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    rgba(248, 250, 252, 0.35) 38%,
+    rgba(248, 250, 252, 0.35) 62%,
+    transparent 100%
+  );
+  pointer-events: none;
+}
+
+.sparkle-ray-cross-h {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 118%;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(248, 250, 252, 0.3) 40%,
+    rgba(248, 250, 252, 0.3) 60%,
+    transparent 100%
+  );
+  pointer-events: none;
+}
+
+.sparkle-ray-diag {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 1px;
+  height: 78%;
+  transform: translate(-50%, -50%) rotate(45deg);
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    rgba(248, 250, 252, 0.16) 44%,
+    rgba(248, 250, 252, 0.16) 56%,
+    transparent 100%
+  );
+  pointer-events: none;
+}
+
+.sparkle-ray-diag-alt {
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+.sparkle-hot-core {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: clamp(2px, 22%, 5px);
+  height: clamp(2px, 22%, 5px);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.72);
+  box-shadow:
+    0 0 4px 1px rgba(255, 255, 255, 0.28),
+    0 0 10px 2px rgba(255, 255, 255, 0.08);
+  pointer-events: none;
+}
+
+@keyframes smoke-page-wipe {
+  0% {
+    transform: translateY(108%);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  44% {
+    transform: translateY(0%);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-122%);
+    opacity: 0;
+  }
+}
+
+.animate-smoke-page-wipe {
+  animation: smoke-page-wipe 1.18s cubic-bezier(0.42, 0, 0.22, 1) forwards;
+}
+
+@keyframes smoke-page-wisp {
+  0% {
+    transform: translateY(35%);
+    opacity: 0;
+  }
+  30% {
+    opacity: 0.55;
+  }
+  100% {
+    transform: translateY(-85%);
+    opacity: 0;
+  }
+}
+
+.animate-smoke-page-wisp {
+  animation: smoke-page-wisp 1.18s ease-in-out forwards;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -207,4 +370,44 @@ body {
 ::selection {
   background: rgba(203, 213, 225, 0.3);
   color: #FFFFFF;
+}
+
+@media (max-width: 768px) {
+  .glitch-text::before,
+  .glitch-text::after {
+    animation-duration: 6s;
+  }
+}
+
+@media (hover: none) {
+  .animate-stagger > * {
+    opacity: 1;
+    animation: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .star-twinkle-dot {
+    animation: none !important;
+    opacity: 0.18 !important;
+    transform: none !important;
+  }
+
+  .sparkle-star-wrap {
+    animation: none !important;
+    opacity: 0.28 !important;
+    filter: none !important;
+  }
 }

@@ -20,8 +20,7 @@ export default function Footer() {
             <p className="text-[10px] uppercase tracking-[0.2em] text-neon-cyan mb-4">Navegación</p>
             <ul className="flex flex-col gap-2">
               {[
-                { href: '/#catalogo', label: 'Catálogo' },
-                { href: '/#drops', label: 'New Drops' },
+                { href: '/#drops', label: 'Limited Drop' },
                 { href: '/carrito', label: 'Carrito' },
               ].map((item) => (
                 <li key={item.href}>
