@@ -78,9 +78,7 @@ export default function Footer() {
         <div className="border-t border-dark-700 mt-10 pt-6 flex flex-col md:flex-row justify-between items-center gap-3">
           <p className="text-[11px] text-dark-500">
             {new Date().getFullYear()} AL SHOP. Todos los derechos reservados.
-          </p>
-          <p className="text-[11px] text-dark-500 uppercase tracking-wider">
-            Urban Streetwear
+
           </p>
         </div>
       </div>
