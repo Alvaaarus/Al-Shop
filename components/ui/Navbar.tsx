@@ -1,13 +1,19 @@
 'use client';
 
 import Link from 'next/link';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useCarritoStore } from '@/store/carrito';
 import type { CarritoStore } from '@/lib/types';
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [mounted, setMounted] = useState(false);
   const totalItems = useCarritoStore((s: CarritoStore) => s.totalItems());
+
+  useEffect(() => { setMounted(true); }, []);
+
+  // Valor seguro: 0 en servidor, real en cliente
+  const displayItems = mounted ? totalItems : 0;
 
   return (
     <>
@@ -24,7 +30,7 @@ export default function Navbar() {
           <nav className="hidden md:flex items-center gap-8">
             {[
               { href: '/', label: 'Inicio' },
-              { href: '/#drops', label: 'Drops' },
+              { href: '/drops', label: 'Drops' },
             ].map((item) => (
               <Link
                 key={item.href}
@@ -43,9 +49,9 @@ export default function Navbar() {
                 <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z" />
                 <line x1="3" y1="6" x2="21" y2="6" />
               </svg>
-              {totalItems > 0 && (
+              {displayItems > 0 && (
                 <span className="absolute -top-2 -right-2 bg-smoke text-white text-[10px] w-5 h-5 rounded-full flex items-center justify-center font-bold animate-neon-pulse">
-                  {totalItems}
+                  {displayItems}
                 </span>
               )}
             </Link>
@@ -74,8 +80,8 @@ export default function Navbar() {
         <nav className="flex flex-col items-center justify-center h-full gap-8 p-6">
           {[
             { href: '/', label: 'Inicio' },
-            { href: '/#drops', label: 'Drops' },
-            { href: '/carrito', label: `Carrito (${totalItems})` },
+            { href: '/drops', label: 'Drops' },
+            { href: '/carrito', label: `Carrito (${displayItems})` },
           ].map((item, i) => (
             <Link
               key={item.href}

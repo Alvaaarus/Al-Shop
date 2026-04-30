@@ -167,25 +167,13 @@ export default function CarritoPage() {
             </a>
 
             <Link
-              href="/#drops"
+              href="/drops"
               className="w-full flex items-center justify-center py-3 border border-dark-600 text-sm text-dark-400 uppercase tracking-[0.15em] hover:border-neon-cyan hover:text-neon-cyan transition-all duration-300"
             >
               ← Seguir comprando
             </Link>
 
             {/* Guarantees */}
-            <div className="mt-6 flex flex-col gap-2">
-              {[
-                { icon: '🔒', text: 'Pago 100% seguro' },
-                { icon: '📦', text: 'Envío a toda la república' },
-                { icon: '↩️', text: 'Cambios en 7 días' },
-              ].map(({ icon, text }) => (
-                <div key={text} className="flex items-center gap-2 text-[11px] text-dark-500">
-                  <span>{icon}</span>
-                  <span>{text}</span>
-                </div>
-              ))}
-            </div>
           </div>
         </div>
       </div>

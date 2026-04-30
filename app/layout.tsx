@@ -18,11 +18,11 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: 'AL SHOP – Urban Caps',
+  title: 'AL-SHOP – Urban Caps',
   description: 'Gorras urbanas de edición limitada. Streetwear premium con diseños exclusivos. Estilo urbano, actitud sin límites.',
-  keywords: ['gorras', 'streetwear', 'urban', 'caps', 'AL SHOP'],
+  keywords: ['gorras', 'streetwear', 'urban', 'caps', 'AL-SHOP'],
   openGraph: {
-    title: 'AL SHOP – Urban Caps',
+    title: 'AL-SHOP – Urban Caps',
     description: 'Gorras urbanas de edición limitada. Streetwear premium.',
     type: 'website',
   },

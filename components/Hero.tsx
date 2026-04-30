@@ -5,12 +5,7 @@ import SmokeEffect from '@/components/SmokeEffect';
 import LightningEffect from '@/components/LightningEffect';
 import SilverStarsBackground from '@/components/SilverStarsBackground';
 
-interface HeroProps {
-  /** Si está definido, "Ver Limited Drop" ejecuta esta acción (transición + scroll). Si no, usa enlace a #drops. */
-  onLimitedDropClick?: () => void;
-}
-
-export default function Hero({ onLimitedDropClick }: HeroProps) {
+export default function Hero() {
   return (
     <section className="relative min-h-[100dvh] flex items-center justify-center overflow-hidden bg-gradient-to-b from-black from-[30%] to-[#001a33]">
       {/* Cielo nocturno: puntos + destellos tipo cruz (muy sutiles) */}
@@ -62,24 +57,13 @@ export default function Hero({ onLimitedDropClick }: HeroProps) {
 
         {/* CTA Buttons */}
         <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center">
-          {onLimitedDropClick ? (
-            <button
-              type="button"
-              onClick={onLimitedDropClick}
-              className="group relative w-full sm:w-auto px-8 sm:px-10 py-4 bg-smoke text-dark-950 text-sm uppercase tracking-[0.2em] font-medium overflow-hidden transition-all duration-300 hover:shadow-[0_0_20px_rgba(203,213,225,0.3)] active:scale-[0.98]"
-            >
-              <span className="relative z-10">Ver Limited Drop</span>
-              <div className="absolute inset-0 bg-smoke-dim transform -translate-x-full group-hover:translate-x-0 group-active:translate-x-0 transition-transform duration-300" />
-            </button>
-          ) : (
-            <Link
-              href="/#drops"
-              className="group relative w-full sm:w-auto px-8 sm:px-10 py-4 bg-smoke text-dark-950 text-sm uppercase tracking-[0.2em] font-medium overflow-hidden transition-all duration-300 hover:shadow-[0_0_20px_rgba(203,213,225,0.3)] active:scale-[0.98]"
-            >
-              <span className="relative z-10">Ver Limited Drop</span>
-              <div className="absolute inset-0 bg-smoke-dim transform -translate-x-full group-hover:translate-x-0 group-active:translate-x-0 transition-transform duration-300" />
-            </Link>
-          )}
+          <Link
+            href="/drops"
+            className="group relative w-full sm:w-auto px-8 sm:px-10 py-4 bg-smoke text-dark-950 text-sm uppercase tracking-[0.2em] font-medium overflow-hidden transition-all duration-300 hover:shadow-[0_0_20px_rgba(203,213,225,0.3)] active:scale-[0.98]"
+          >
+            <span className="relative z-10">Ver Limited Drop</span>
+            <div className="absolute inset-0 bg-smoke-dim transform -translate-x-full group-hover:translate-x-0 group-active:translate-x-0 transition-transform duration-300" />
+          </Link>
 
           <Link
             href="/carrito"
