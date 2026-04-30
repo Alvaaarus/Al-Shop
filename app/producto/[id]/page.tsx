@@ -92,15 +92,40 @@ export default function ProductoPage({ params }: Props) {
       : producto.etiquetas.map((t) => `Detalle: ${t}`);
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 py-6 md:py-10">
-      {/* Breadcrumb */}
-      <nav className="flex items-center gap-2 text-[10px] uppercase tracking-[0.2em] text-dark-500 mb-6 md:mb-8">
-        <Link href="/" className="hover:text-smoke transition-colors duration-300">Inicio</Link>
-        <span>/</span>
-        <Link href="/drops" className="hover:text-smoke transition-colors duration-300">Limited Drop</Link>
-        <span>/</span>
-        <span className="text-smoke">{producto.codigo}</span>
-      </nav>
+    <div className="relative min-h-screen overflow-hidden">
+      {/* Dynamic Ambient Glow matching the cap's colors */}
+      <div className="absolute inset-0 pointer-events-none -z-10 flex items-start justify-center opacity-[0.15]">
+        <div className="relative w-[600px] h-[600px] sm:w-[800px] sm:h-[800px] blur-[140px] sm:blur-[180px] rounded-full translate-y-[-20%]">
+          <Image
+            src={producto.imagen}
+            alt=""
+            fill
+            className="object-cover mix-blend-screen"
+            priority
+          />
+        </div>
+      </div>
+
+      {/* Subtle urban grid pattern */}
+      <div
+        className="absolute inset-0 pointer-events-none opacity-[0.02] -z-10"
+        style={{
+          backgroundImage:
+            'linear-gradient(rgba(203,213,225,0.4) 1px, transparent 1px), linear-gradient(90deg, rgba(203,213,225,0.4) 1px, transparent 1px)',
+          backgroundSize: '40px 40px',
+        }}
+      />
+
+      {/* Main Content Wrapper */}
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 py-6 md:py-10">
+        {/* Breadcrumb */}
+        <nav className="flex items-center gap-2 text-[10px] uppercase tracking-[0.2em] text-dark-500 mb-6 md:mb-8">
+          <Link href="/" className="hover:text-smoke transition-colors duration-300">Inicio</Link>
+          <span>/</span>
+          <Link href="/drops" className="hover:text-smoke transition-colors duration-300">Limited Drop</Link>
+          <span>/</span>
+          <span className="text-smoke">{producto.codigo}</span>
+        </nav>
 
       {/* Grid principal */}
       <div
@@ -401,6 +426,7 @@ export default function ProductoPage({ params }: Props) {
           ))}
         </div>
       </div>
+    </div>
     </div>
   );
 }

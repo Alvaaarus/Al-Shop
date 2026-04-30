@@ -191,6 +191,26 @@ export const productos: Producto[] = [
     reviews: 26,
     nuevo: false,
   },
+  {
+    id: 10,
+    codigo: 'LA-SKYBLUE',
+    nombre: 'LA SKYBLUE Edition',
+    precio: 850,
+    imagen: '/productos/imagenes/la-skyblue-1.webp',
+    imagenes: [
+      '/productos/imagenes/la-skyblue-1.webp',
+      '/productos/imagenes/la-cyan-2.webp',
+    ],
+    video: '/productos/videos/la-cyan.mp4',
+    descripcion: 'LA Cyan Edition con letras 3D premium en el frente. Detalles en rhinestones brillantes. Forro interior de algodón premium. Acabado de lujo. Edición limitada.',
+    etiquetas: ['la', 'cyan', 'rhinestones'],
+    talla: 'Talla única',
+    color: 'Negro con Rhinestones',
+    stock: 1,
+    rating: 4.9,
+    reviews: 26,
+    nuevo: false,
+  },
 ];
 
 

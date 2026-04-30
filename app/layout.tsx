@@ -2,7 +2,6 @@ import type { Metadata } from 'next';
 import { Bebas_Neue, Inter } from 'next/font/google';
 import './globals.css';
 import Navbar from '@/components/ui/Navbar';
-import Footer from '@/components/ui/Footer';
 
 const bebasNeue = Bebas_Neue({
   weight: '400',
@@ -38,7 +37,6 @@ export default function RootLayout({
       <body className="bg-dark-950 text-dark-100">
         <Navbar />
         <main className="min-h-screen">{children}</main>
-        <Footer />
       </body>
     </html>
   );
