@@ -33,52 +33,50 @@ export default function Hero() {
       />
 
       {/* Content */}
-      <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
-        {/* Tag */}
-        <p className="text-[11px] uppercase tracking-[0.3em] text-smoke mb-6 animate-neon-pulse">
-          Edición Limitada · Streetwear
-        </p>
+      <div className="relative z-10 flex flex-col items-center justify-center text-center px-4 w-full max-w-3xl mx-auto">
 
         {/* Main title with glitch effect */}
-        <h1 className="font-display text-6xl sm:text-8xl md:text-9xl lg:text-[10rem] uppercase leading-[0.85] tracking-wider text-white mb-4">
+        <h1 className="font-display text-7xl sm:text-9xl md:text-[11rem] lg:text-[13rem] uppercase leading-[0.85] tracking-wider text-white mb-6 w-full text-center">
           <span className="glitch-text" data-text="AL SHOP">AL SHOP</span>
         </h1>
 
         {/* Subtitle */}
-        <p className="font-display text-2xl sm:text-3xl md:text-4xl uppercase tracking-[0.15em] text-dark-300 mb-2">
-          Urban <span className="text-neon-cyan">Caps</span>
+        <p className="font-display text-2xl sm:text-3xl md:text-4xl uppercase tracking-[0.2em] text-dark-300 mb-10 text-center">
+          Urban <span className="text-smoke">Caps</span>
         </p>
 
-        {/* Description */}
-        <p className="text-sm sm:text-base text-dark-400 max-w-md mx-auto mb-10 leading-relaxed">
-          Gorras que hablan por ti. Diseños exclusivos, materiales premium,
-          actitud sin límites. Cada pieza es una declaración.
-        </p>
+        {/* Línea decorativa plata */}
+        <div className="w-16 h-px bg-gradient-to-r from-transparent via-smoke to-transparent mb-10" />
 
-        {/* CTA Buttons */}
-        <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center">
+        {/* CTA Buttons — apilados verticalmente */}
+        <div className="flex flex-col items-center gap-4 w-full max-w-xs mx-auto">
+          {/* Botón primario — plata sólido */}
           <Link
             href="/drops"
-            className="group relative w-full sm:w-auto px-8 sm:px-10 py-4 bg-smoke text-dark-950 text-sm uppercase tracking-[0.2em] font-medium overflow-hidden transition-all duration-300 hover:shadow-[0_0_20px_rgba(203,213,225,0.3)] active:scale-[0.98]"
+            className="group relative w-full flex items-center justify-center gap-2 px-10 py-4 overflow-hidden transition-all duration-300 active:scale-[0.97]"
+            style={{
+              background: 'linear-gradient(135deg, #e2e8f0 0%, #cbd5e1 40%, #94a3b8 100%)',
+              boxShadow: '0 0 18px rgba(203,213,225,0.25), inset 0 1px 0 rgba(255,255,255,0.35)',
+            }}
           >
-            <span className="relative z-10">Ver Limited Drop</span>
-            <div className="absolute inset-0 bg-smoke-dim transform -translate-x-full group-hover:translate-x-0 group-active:translate-x-0 transition-transform duration-300" />
+            {/* Shimmer sweep */}
+            <span className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 bg-gradient-to-r from-transparent via-white/30 to-transparent" />
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#0a0a0a" strokeWidth="2.5" className="relative z-10 shrink-0">
+              <path d="M5 12h14M12 5l7 7-7 7" />
+            </svg>
+            <span className="relative z-10 text-[#0a0a0a] text-sm uppercase tracking-[0.25em] font-semibold">
+              Ver Limited Drop
+            </span>
           </Link>
 
-          <Link
-            href="/carrito"
-            className="w-full sm:w-auto px-8 sm:px-10 py-4 border border-neon-cyan text-neon-cyan text-sm uppercase tracking-[0.2em] font-medium hover:bg-neon-cyan/10 hover:shadow-[0_0_15px_rgba(6,182,212,0.2)] active:scale-[0.98] transition-all duration-300"
-          >
-            Ir al carrito
-          </Link>
         </div>
+      </div>
 
-        {/* Scroll indicator */}
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-float">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" className="text-dark-500">
-            <path d="M12 5v14M5 12l7 7 7-7" />
-          </svg>
-        </div>
+      {/* Scroll indicator */}
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-float">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" className="text-dark-500">
+          <path d="M12 5v14M5 12l7 7 7-7" />
+        </svg>
       </div>
 
       {/* Bottom gradient line */}

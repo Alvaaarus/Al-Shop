@@ -38,7 +38,7 @@ export const productos: Producto[] = [
     imagen: '/productos/imagenes/dandy-lh-lost-hills-1.webp',
     imagenes: [
       '/productos/imagenes/dandy-lh-lost-hills-1.webp',
-      '/productos/imagenes/chrome-star-trucker-1.webp',
+      '/productos/imagenes/dandy-lh-lost-hills-2.webp',
     ],
     video: '/productos/videos/dandy-lh-lost-hills.mp4',
     descripcion: 'Dandy Lost Hills con estilo rudo. Remaches metálicos distribuidos estratégicamente. Letras plateadas grandes en el frente. Diseño agresivo y poderoso. Forro interior de calidad premium.',
@@ -59,7 +59,7 @@ export const productos: Producto[] = [
     imagen: '/productos/imagenes/la-rosa-edition-1.webp',
     imagenes: [
       '/productos/imagenes/la-rosa-edition-1.webp',
-      '/productos/imagenes/chrome-star-trucker-1.webp',
+      '/productos/imagenes/la-rosa-edition-2.webp',
     ],
     video: '/productos/videos/la-rosa-edition.mp4',
     descripcion: 'LA Rosa Edition con bordado 3D de alta densidad. Detalles en perlas blancas incrustadas. Forro interior rosa de marca premium. Acabado de lujo. Edición limitada.',
@@ -79,7 +79,7 @@ export const productos: Producto[] = [
     imagen: '/productos/imagenes/canello-ac-azul-1.webp',
     imagenes: [
       '/productos/imagenes/canello-ac-azul-1.webp',
-      '/productos/imagenes/chrome-star-trucker-1.webp',
+      '/productos/imagenes/canello-ac-azul-2.webp',
     ],
     video: '/productos/videos/canello-ac-azul.mp4',
     descripcion: 'CANELLO AC Azul con incrustaciones de rhinestones premium. Distribución estratégica de piedras brillantes. Forro interior de algodón premium con marca CANELLO. Acabado de joyería.',
@@ -99,7 +99,7 @@ export const productos: Producto[] = [
     imagen: '/productos/imagenes/chrome-star-trucker-1.webp',
     imagenes: [
       '/productos/imagenes/chrome-star-trucker-1.webp',
-      '/productos/imagenes/s06-scream-edition-1.webp',
+      '/productos/imagenes/chrome-star-trucker-2.webp',
     ],
     video: '/productos/videos/chrome-star-trucker.mp4',
     descripcion: 'Chrome Star Trucker con detalles metálicos cromados. Malla trasera transpirable. Cierre snapback ajustable. Diseño urbano con estrella cromada en el frente. Streetwear de edición limitada.',
@@ -119,7 +119,7 @@ export const productos: Producto[] = [
     imagen: '/productos/imagenes/corteiz-star-trucker-hat-1.webp',
     imagenes: [
       '/productos/imagenes/corteiz-star-trucker-hat-1.webp',
-      '/productos/imagenes/chrome-star-trucker-1.webp',
+      '/productos/imagenes/corteiz-star-trucker-hat-2.webp',
     ],
     video: '/productos/videos/corteiz-star-trucker-hat.mp4',
     descripcion: 'Corteiz Star Trucker Hat con logo bordado frontal. Malla trasera de alta calidad. Cierre snapback. Inspirado en el streetwear londinense más exclusivo.',
@@ -139,7 +139,7 @@ export const productos: Producto[] = [
     imagen: '/productos/imagenes/lost-hills-trucker-edition-1.webp',
     imagenes: [
       '/productos/imagenes/lost-hills-trucker-edition-1.webp',
-      '/productos/imagenes/chrome-star-trucker-1.webp',
+      '/productos/imagenes/lost-hills-trucker-edition-2.webp',
     ],
     video: '/productos/videos/lost-hills-trucker-edition.mp4',
     descripcion: 'Lost Hills Trucker Edition con bordado premium. Estructura de 5 paneles. Malla trasera transpirable. Cierre snapback ajustable. Diseño rudo con actitud callejera.',
@@ -159,7 +159,7 @@ export const productos: Producto[] = [
     imagen: '/productos/imagenes/barbas-hats-b-chrome-edition-1.webp',
     imagenes: [
       '/productos/imagenes/barbas-hats-b-chrome-edition-1.webp',
-      '/productos/imagenes/chrome-star-trucker-1.webp',
+      '/productos/imagenes/barbas-hats-b-chrome-edition-2.webp',
     ],
     video: '/productos/videos/barbas-hats-b-chrome-edition.mp4',
     descripcion: 'Barbas Hats B Chrome Edition con acabado cromado exclusivo. Logo B metálico en el frente. Estructura premium de 6 paneles. Cierre snapback. Piezas únicas para coleccionistas.',
@@ -179,7 +179,7 @@ export const productos: Producto[] = [
     imagen: '/productos/imagenes/jacquard-star-hat-1.webp',
     imagenes: [
       '/productos/imagenes/jacquard-star-hat-1.webp',
-      '/productos/imagenes/chrome-star-trucker-1.webp',
+      '/productos/imagenes/jacquard-star-hat-2.webp',
     ],
     video: '/productos/videos/jacquard-star-hat.mp4',
     descripcion: 'Jacquard Star Hat con tejido jacquard premium. Patrón de estrellas en relieve. Estructura sólida de 6 paneles. Cierre snapback. Textura única que combina tradición y streetwear.',
