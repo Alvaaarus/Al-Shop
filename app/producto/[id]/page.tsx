@@ -6,7 +6,7 @@ import Link from 'next/link';
 import { useState, use, useMemo, useRef } from 'react';
 import { getProductoById, productos } from '@/data/productos';
 import { useCarritoStore } from '@/store/carrito';
-import { formatPrice, cn } from '@/lib/utils';
+import { formatPrice, cn, WA_NUMBER } from '@/lib/utils';
 import type { Producto } from '@/lib/types';
 import ProductCard from '@/components/ProductCard';
 
@@ -341,7 +341,7 @@ export default function ProductoPage({ params }: Props) {
           )}
 
           <a
-            href={`https://wa.me/521XXXXXXXXXX?text=Hola,%20me%20interesa%20la%20gorra%20${producto.codigo}%20%E2%80%93%20${producto.nombre}`}
+            href={`https://wa.me/${WA_NUMBER}?text=Hola,%20me%20interesa%20la%20gorra%20${producto.codigo}%20%E2%80%93%20${producto.nombre}`}
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center justify-center gap-2 border border-dark-600 h-12 text-sm text-dark-300 hover:border-neon-cyan hover:text-neon-cyan active:border-neon-cyan active:text-neon-cyan transition-all duration-300 uppercase tracking-[0.12em] touch-manipulation"

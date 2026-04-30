@@ -1,4 +1,7 @@
+'use client';
+
 import Link from 'next/link';
+import { WA_NUMBER } from '@/lib/utils';
 
 export default function Footer() {
   return (
@@ -41,7 +44,7 @@ export default function Footer() {
             <ul className="flex flex-col gap-3 text-sm text-dark-400">
               <li>
                 <a
-                  href="https://wa.me/521XXXXXXXXXX"
+                  href={`https://wa.me/${WA_NUMBER}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hover:text-smoke transition-colors duration-300 flex items-center gap-2"

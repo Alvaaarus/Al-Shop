@@ -7,6 +7,7 @@ import LightningEffect from '@/components/LightningEffect';
 import ProductCard from '@/components/ProductCard';
 import CloudDescentTransition from '@/components/CloudDescentTransition';
 import { productos } from '@/data/productos';
+import { WA_NUMBER } from '@/lib/utils';
 
 export default function DropsPageClient() {
   const [filter, setFilter] = useState<'all' | 'new'>('all');
@@ -139,7 +140,7 @@ export default function DropsPageClient() {
             Respondemos en minutos. Te ayudamos a elegir tu gorra perfecta.
           </p>
           <a
-            href="https://wa.me/521XXXXXXXXXX?text=Hola,%20me%20interesa%20una%20gorra%20de%20AL%20SHOP"
+            href={`https://wa.me/${WA_NUMBER}?text=Hola,%20me%20interesa%20una%20gorra%20de%20AL%20SHOP`}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-3 px-10 py-4 bg-smoke text-white text-sm uppercase tracking-[0.2em] font-medium hover:shadow-[0_0_20px_rgba(203,213,225,0.3)] transition-all duration-300"

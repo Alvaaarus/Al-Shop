@@ -2,11 +2,24 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
+import { useEffect, useState } from 'react';
 import { useCarritoStore } from '@/store/carrito';
-import { formatPrice } from '@/lib/utils';
+import { formatPrice, WA_NUMBER } from '@/lib/utils';
 
 export default function CarritoPage() {
+  const [mounted, setMounted] = useState(false);
   const { items, quitarItem, actualizarCantidad, limpiarCarrito, totalPrecio } = useCarritoStore();
+
+  useEffect(() => { setMounted(true); }, []);
+
+  // Evita hydration mismatch: muestra loading hasta que el cliente esté listo
+  if (!mounted) {
+    return (
+      <div className="max-w-7xl mx-auto px-4 py-32 text-center">
+        <p className="font-display text-4xl uppercase text-dark-700 animate-pulse">Cargando...</p>
+      </div>
+    );
+  }
 
   const total = totalPrecio();
   const envio = total >= 500 ? 0 : 99;
@@ -155,7 +168,7 @@ export default function CarritoPage() {
 
             {/* WhatsApp CTA */}
             <a
-              href={`https://wa.me/521XXXXXXXXXX?text=${mensajeWA}`}
+              href={`https://wa.me/${WA_NUMBER}?text=${mensajeWA}`}
               target="_blank"
               rel="noopener noreferrer"
               className="w-full flex items-center justify-center gap-2 py-3.5 bg-smoke text-white text-sm uppercase tracking-[0.15em] font-medium hover:shadow-[0_0_20px_rgba(203,213,225,0.3)] transition-all duration-300 mb-3"
