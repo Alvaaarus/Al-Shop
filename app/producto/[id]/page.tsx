@@ -92,7 +92,7 @@ export default function ProductoPage({ params }: Props) {
   const caracteristicasLista =
     producto.caracteristicas?.length
       ? producto.caracteristicas
-      : producto.etiquetas.map((t) => `Detalle: ${t}`);
+      : producto.etiquetas;
 
   // ── ATMÓSFERA DINÁMICA ──────────────────────────────────────
   const atmosphere = useMemo(() => {
@@ -394,9 +394,13 @@ export default function ProductoPage({ params }: Props) {
                 <h2 className="text-[10px] font-bold uppercase tracking-[0.2em] text-dark-500">Características</h2>
                 <ul className="grid gap-2">
                   {caracteristicasLista.map((line) => (
-                    <li key={line} className="flex items-center gap-2.5 text-sm text-dark-100">
-                      <div className="w-1.5 h-1.5 rounded-full bg-smoke/40" />
-                      <span className="font-light tracking-wide">{line}</span>
+                    <li key={line} className="flex items-start gap-2.5 text-sm text-dark-100 group/item">
+                      <div className="mt-1 flex items-center justify-center shrink-0">
+                        <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor" className="text-smoke/60 group-hover/item:text-smoke transition-colors">
+                          <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1-8.313-12.454z" />
+                        </svg>
+                      </div>
+                      <span className="font-light tracking-wide uppercase text-[11px] opacity-85 group-hover/item:opacity-100 transition-opacity">{line}</span>
                     </li>
                   ))}
                 </ul>
